@@ -1,0 +1,20 @@
+Status
+Idle
+Attack_pedra
+Attack_papel
+Attack_tesoura
+Damage
+Parry
+Death
+
+
+--------------------------------------------
+Propriedades
+playerStatus// 0 = idle; 1 = attack; 2 = attack_papel ; 3 attack_tesoura; 4 = Damage; 5 = Parry; 6 = Death;
+playerAnim// 0 = idle; 1 = attack; 2 = attack_papel ; 3 attack_tesoura; 4 = Damage; 5 = Parry; 6 = Death;
+playerEnergy // Numero Impar
+characterID // Decide a skin ativa 
+
+Métodos
+changeStatus(int)// Muda o Status do Jogador
+statAnim(int)// Muda a Animação

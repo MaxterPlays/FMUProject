@@ -1,0 +1,43 @@
+//Botões de ação
+botão  Pedra
+botão  Papel
+Botão  Tesoura
+
+//Botões de controle
+Botão  Pausa
+
+
+//Botões de Menu de Pausa
+Botão Voltar ao Jogo
+Botão Menu Principal
+Botão Mute
+
+//Botões da menu "SAIDA"
+Botão Sim Saida
+Botão Não Saida
+
+//Botões do Menu Principal
+Botão Jogar
+Botão Sair
+Botão Creditos
+Botão Mute
+Botão Rate Us
+
+----------------------------------------------------------------------------
+
+Propriedades
+playerAct//0 = Sem Jogada; 1 = Pedra; 2 = Papel; 3 = Tesoura;
+isPaused
+isMute
+
+Métodos
+onActionClick(int act)//Muda a propriedade status da jogada
+onPauseClick
+onExitMainClick
+onExitMainChoiceClick(bool)
+onGameStartClick
+onExitClick
+onCreditsClick
+onMuteClick
+onRateClick
+
