@@ -1,2 +1,7 @@
 Timer
 Barras de Energia
+Player
+Inimigo
+Efeitos sonoros
+Musicas
+UI
