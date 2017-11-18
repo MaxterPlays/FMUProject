@@ -24,23 +24,50 @@ public class playerUI : MonoBehaviour {
 	Button bt_exit_yes;
 	Button bt_exit_no;
 
-	//Botões do Menu Principal
-	Button bt_play;
+	//Botões do Menu Principal*/
+
+
+	/*Button bt_play;
 	Button bt_exit;
 	Button bt_credits;
 	Button bt_mute_main;
 	Button bt_rate;
 	*/
 
-	
+	public mainController main;
+	public Text battle_text;
+	public bool text_counter_bool =false;
+	public float text_counter = 2;
+
+	public mediaControl media;
+
 	void Start () {
 		
 	}
-		
-	void Update () {
-		
+
+
+	public void battleStartText(){
+		if (text_counter_bool){
+			battle_text.text = ("Preparai-vos");
+			text_counter += 30 * Time.deltaTime;
+			int f_text_counter = Mathf.RoundToInt (text_counter);
+			battle_text.fontSize = 150 - f_text_counter;
+			if (text_counter > 50) {
+				battle_text.text = ("Atacai !");
+				media.playAudio (3,true);
+				battle_text.fontSize = 150;
+				Invoke ("setBoolOff", 0.5f);
+			}
+			}
 	}
 
+	void setBoolOff(){
+		
+		battle_text.text = ("");
+		text_counter_bool = false;
+		main.playable = true;
+
+	}
 
 	//Muda a propriedade status da jogada: bt_rock,bt_paper,bt_scisor
 	public void onActionClick(int act){
@@ -58,14 +85,17 @@ public class playerUI : MonoBehaviour {
 	}
 
 	//Confirma a saida para o main menu: bt_exit_yes, bt_exit_no
-	public bool onExitMainChoiceClick(bool choice){
-
-		return true;
+	public void onExitMainClick(){
+		main.btnExitMatch ();
 	}
 
 	//Inicia o jogo: bt_play
-	public void onGameStartClick(){
-		Debug.Log("onGameStartClick");
+	public void onBtnGameStartClick(){		
+		main.onGameStartClick ();
+	}
+
+	public void onBtnMainMenuClick(){
+		main.onMainMenuClick ();
 	}
 	
 	//Sai do jogo: bt_exit
@@ -74,8 +104,8 @@ public class playerUI : MonoBehaviour {
 	}
 
 	//Exibe Créditos: bt_credits
-	public void onCreditsClick(){		
-		Debug.Log("onCreditsClick");
+	public void onBtnCreditsClick(){		
+		main.onCreditsClick ();
 	}
 
 	//Liga/desliga Mudo: bt_mute, bt_mute_main
@@ -86,5 +116,9 @@ public class playerUI : MonoBehaviour {
 	//Rate do jogo: bt_rate
 	public void onRateClick(){
 		Debug.Log("onRateClick");
+	}
+
+	public void exitMatchBtn(){
+		main.btnExitMatch ();
 	}
 }
